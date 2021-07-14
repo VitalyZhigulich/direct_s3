@@ -7,6 +7,6 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/direct_s3
+      - .:/direct_s3_web
     ports:
       - 3000:3000
