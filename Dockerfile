@@ -2,11 +2,11 @@ FROM ruby:3.0.2
 
 RUN apt-get update -qq && apt-get install -y nodejs
 
-RUN mkdir /app
-WORKDIR /app
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+ENV RAILS_ROOT /var/www/
 
-RUN bundle install
+RUN mkdir -p $RAILS_ROOT
+WORKDIR $RAILS_ROOT
+COPY Gemfile* ./
 
-COPY . /app
+RUN bundle install --jobs 4
+COPY . .
