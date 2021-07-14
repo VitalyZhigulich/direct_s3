@@ -1,0 +1,6 @@
+<%= form_with method: :post do |form| %>
+  <%= form.label :file %>
+  <%= form.file_field :files, multiple: true, direct_upload: true %>
+
+  <%= form.submit %>
+<% end %>
